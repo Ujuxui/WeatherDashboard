@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col bg-purple-50 font-sans items-center">
+  <header class="bg-gradient-to-r from-purple-900 to-violet-400 text-white w-full py-4 shadow-md text-center">
+    <h1 class="text-2xl font-semibold">Weather Dashboard</h1>
+  </header>
+
+  <main class="max-w-4xl w-full mt-8 px-4">
+    <!-- Search Section -->
+    <section class="bg-white p-6 rounded shadow-lg w-full sm:max-w-md md:max-w-lg lg:max-w-full">
+      <div class="mb-4">
+        <label for="cityInput" class="block text-gray-700 font-semibold mb-2">Enter a City Name</label>
+        <input
+          id="cityInput"
+          type="text"
+          placeholder="E.g., New Delhi, London, Tokyo"
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-purple-500 box-border"
+        />
+      </div>
+      <div class="flex justify-between items-center">
+        <button
+          id="searchButton"
+          class="bg-purple-700 text-white px-4 py-2 rounded shadow hover:bg-purple-900"
+        >
+          Search
+        </button>
+        <p class="text-gray-500 font-semibold">or</p>
+        <button
+          id="locationButton"
+          class="bg-gray-500 text-white px-4 py-2 rounded shadow hover:bg-gray-800"
+        >
+          Use Current Location
+        </button>
+      </div>
+      <div class="mt-4">
+        <label for="recentCitiesDropdown" class="block text-gray-700 font-semibold mb-2">Recent Searches</label>
+        <select
+          id="recentCitiesDropdown"
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-purple-500"
+        >
+          <option value="" disabled selected>No recent searches</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Weather Display -->
+    <section id="weatherDisplay" class="mt-8 hidden">
+      <div class="bg-gradient-to-r from-purple-900 to-violet-400 text-white p-6 rounded-lg shadow-md flex flex-col md:flex-row justify-between items-center">
+        <div>
+          <h2 id="cityName" class="text-xl font-bold"></h2>
+          <p id="currentDate" class="text-sm"></p>
+          <p id="temperature" class="mt-4">Temperature: <span></span></p>
+          <p id="windSpeed">Wind: <span></span> m/s</p>
+          <p id="humidity">Humidity: <span></span>%</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <a href="https://www.weatherapi.com/" title="Free Weather API">
+            <img id="currentIcon" src="" alt="Weather data" class="w-16 h-16 mb-2">
+          </a>
+          <p id="weatherDescription"></p>
+        </div>
+      </div>
+
+      <!-- 5-Day Forecast Cards-->
+      <h3 class="mt-6 text-xl font-semibold text-gray-700">5-Day Forecast</h3>
+      <div id="forecast" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mt-4">
+      </div>
+    </section>
+  </main>
+</body>
+<script src="app.js"></script>
+</html>
